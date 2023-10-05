@@ -1,0 +1,98 @@
+class Solution {
+
+    private boolean isPalindrome(String words){
+        char[] ip = words.toCharArray();
+        int len = ip.length;
+        for(int j=0; j<len;j++){
+            if(ip[j] != ip[len-1-j]){
+                  return false;
+            }
+        }    
+        return true;
+    }
+    public List<List<Integer>> palindromePairs(String[] words) {
+        List<List<Integer>> list = new ArrayList<>();
+
+        if(words == null || words.length < 2)
+            return list;
+
+        for(int i=0; i<words.length; i++){
+            for(int j=0; j<words.length;j++){
+
+                if(isPalindrome(words[i]+words[j]) && i!=j){
+                    List<Integer> temp = new ArrayList<>();
+                    temp.add(i); temp.add(j);
+                    list.add(temp);
+                    //break;
+                }
+            }
+        }
+        return list;
+    }
+}
+
+
+class Solution {
+    public List<List<Integer>> palindromePairs(String[] words) {
+    //result list of lists
+    List<List<Integer>> res = new ArrayList<>();
+
+    if(words == null || words.length < 2) 
+        return res;
+
+    //declare hashmap
+    HashMap<String, Integer> map = new HashMap<>();
+
+    
+    //map each word and its index in hashmap
+    for (int i = 0; i < words.length; i++) {
+        map.put(words[i], i); 
+    }
+
+    //iterate over words array
+    for (int i = 0; i < words.length; i++) {
+       //iterate over each letter in each word; <= to take into account "" word
+    for (int j = 0; j <= words[i].length(); j++) {
+            //substring 1
+            String str1 = words[i].substring(0, j);
+            //substring 2; remaining part of the words[i]
+            String str2 = words[i].substring(j);
+
+            if (isPalindrome(str1)) {
+              
+                String str2revs = new StringBuilder(str2).reverse().toString();
+                if (map.containsKey(str2revs) && map.get(str2revs) != i) {
+                    List<Integer> temp = new ArrayList<>();
+                    temp.add(map.get(str2revs));
+                    temp.add(i);
+                    res.add(temp);
+                 } 
+            }
+
+            if (isPalindrome(str2)) {
+               String str1revs = new StringBuilder(str1).reverse().toString();
+               if (map.containsKey(str1revs) && map.get(str1revs) != i && str2.length() != 0) {
+                   List<Integer> temp = new ArrayList<>();
+                   temp.add(i);
+                   temp.add(map.get(str1revs));
+                   res.add(temp);
+               } 
+            }
+        }
+    }
+    return res;
+
+    // T O(nk^2) n length of words, k avg/worst case length of each word S O(n)
+}
+
+private boolean isPalindrome (String word) {
+
+int left = 0;
+int right = word.length() - 1;
+while(left <= right) {
+if(word.charAt(left++) != word.charAt(right--)) return false;
+}
+return true;
+}
+
+}
