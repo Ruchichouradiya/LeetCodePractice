@@ -1,0 +1,14 @@
+class Solution {
+    public String truncateSentence(String s, int k) {
+        
+        StringBuilder sb = new StringBuilder();
+        String[] words = s.split("\\s+");
+        int i=0;
+         while(k > i){
+             sb.append(words[i]).append(" ");
+             i++;
+         }
+         return sb.toString().trim();
+
+    }
+}
