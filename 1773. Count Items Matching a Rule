@@ -1,0 +1,16 @@
+class Solution {
+    public int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
+        int match =0;
+        for(List<String> ip : items){
+                if(ruleKey.equals("color") && ruleValue.equals(ip.get(1))){
+                        match++;
+                }else if(ruleKey.equals("type") && ruleValue.equals(ip.get(0))){
+                    match++;
+                }else{
+                   if(ruleKey.equals("name") && ruleValue.equals(ip.get(2)))
+                        match++;
+                }    
+        }
+        return match;
+    }
+}
