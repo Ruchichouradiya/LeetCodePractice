@@ -1,0 +1,9 @@
+class Solution {
+    public boolean isAcronym(List<String> words, String s) {
+        String op ="";
+        for(String ip : words){
+            op+= ip.charAt(0);
+        }
+        return op.equals(s);
+    }
+}
