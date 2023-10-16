@@ -1,0 +1,19 @@
+class Solution {
+    public int[] rowAndMaximumOnes(int[][] mat) {
+        int row =0 , count=-1;
+        int [] op = new int[2];
+        for(int i=0;i<mat.length;i++){
+            int t = 0;
+            for(int j=0;j<mat[0].length;j++){
+                t+= mat[i][j] == 1 ? 1 :0;
+            }
+            if(count < t){
+                row = i;
+                count = t;
+            }
+        }
+        op[0] = row; op[1] = count;
+        return op;
+        
+    }
+}
