@@ -1,0 +1,18 @@
+class Solution {
+    public int repeatedNTimes(int[] nums) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        int val=0;
+        for(int data : nums ){
+             if(map.containsKey(data))
+                map.put(data,map.get(data)+1);
+             else   
+                map.put(data,1);
+        }
+         for (Map.Entry<Integer, Integer> set : map.entrySet()) {
+             if(set.getValue() > 1){
+                val = set.getKey();break;
+             }   
+        }
+        return val;
+    }
+}
