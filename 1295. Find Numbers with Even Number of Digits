@@ -1,0 +1,16 @@
+class Solution {
+    public int findNumbers(int[] nums) {
+        int sum=0;
+
+        for(int n :nums){
+            int i=0;
+            while(n>0){
+                n/=10;
+                i++;
+            }
+            sum+= i%2==0 ? 1 : 0;
+        }
+
+        return sum;
+    }
+}
