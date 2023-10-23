@@ -1,0 +1,15 @@
+class Solution {
+    public int arrangeCoins(int n) {
+        int row=0;
+        while(n>0){
+            row++;
+            if(n > row){
+                n -= row;
+            }else if(n==row){
+                row++;n -= row;
+            }else
+                n=0;       
+        }
+        return row-1;
+    }
+}
