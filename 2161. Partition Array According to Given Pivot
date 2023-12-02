@@ -1,0 +1,23 @@
+class Solution {
+    public int[] pivotArray(int[] nums, int pivot) {
+        int l=0, r = nums.length;
+        int op[] = new int[r];
+
+        for(int x : nums){
+            if(x < pivot){
+                op[l++] = x;
+            }
+        }
+        for(int x : nums){
+            if(x == pivot){
+                op[l++] = x;
+            }
+        }
+        for(int x : nums){
+            if(x > pivot){
+                op[l++] = x;
+            }
+        }
+        return op;
+    }
+}
