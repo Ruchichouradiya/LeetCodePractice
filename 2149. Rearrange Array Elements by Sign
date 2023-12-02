@@ -1,0 +1,15 @@
+class Solution {
+    public int[] rearrangeArray(int[] nums) {
+        int i = 0 , j =1 , len = nums.length;
+        int[] op = new int[len];
+
+        for(int v : nums){
+            if(v > 0){
+                op[i] = v; i+=2;
+            }else{
+                op[j] = v; j+=2;
+            }    
+        }
+        return op;
+    }
+}
