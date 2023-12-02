@@ -1,0 +1,16 @@
+class Solution {
+    public int minimumRounds(int[] tasks) {
+
+            int ans = 0;
+            Map<Integer,Integer> map = new HashMap<Integer,Integer>();
+
+           for(int i : tasks){
+                map.merge(i,1,Integer::sum);
+           }
+           for(int freq : map.values()){
+                if(freq == 1) return -1;
+                ans += freq/3 + (freq%3 == 0 ? 0 : 1);
+          }
+          return ans;
+    }
+}    
