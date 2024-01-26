@@ -1,0 +1,26 @@
+public class Test {
+
+	public static void main(String[] args) {
+
+		 for(int i=0;i<20;i++) {
+			 isPrime(i);
+		 }
+
+	}
+	
+	public static void isPrime(int n) {
+			boolean flag = true;
+			
+			if(n<=1 || n%2 == 0 || n%3 == 0){
+	        	flag = false;
+	        }
+		 	if(n==2 || n==3){
+		 		flag = true;
+	        }
+	        for(int i=5;i*i<=n;i+=6){
+	            if(n%i==0 || n%(i+2)==0)
+	            	flag = false;
+	        }
+	        System.out.println("The Number "+n+" is Prime :"+ flag);
+	}
+}
