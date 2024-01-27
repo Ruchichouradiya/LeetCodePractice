@@ -1,0 +1,19 @@
+class GfG
+{
+    public static int nknode(Node head, int k)
+    {
+       Node current = head;
+       int count =1;
+       while(current.next!=null){
+           current = current.next;
+           count++;
+       }
+       int th=(int)Math.ceil((double)count/k);
+       current = head;
+       for(count=1;count<th && current.next!=null;count++){
+                current = current.next;
+       }
+       return current.data;
+        
+    }
+}
