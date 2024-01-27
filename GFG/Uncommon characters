@@ -1,0 +1,31 @@
+class Solution
+{
+    String UncommonChars(String A, String B)
+    {
+        HashSet<Character> set=new HashSet<>();
+        
+        for(char c : A.toCharArray()){
+            if(!B.contains(String.valueOf(c))){
+               set.add(c);
+           }
+        }
+        
+        for(char c : B.toCharArray()){
+            if(!A.contains(String.valueOf(c))){
+               set.add(c);
+           }
+        }
+        if(set.isEmpty()){
+            return "-1";
+        }
+        
+        ArrayList<Character> list = new ArrayList<>(set);
+        Collections.sort(list);
+        StringBuilder sb=new StringBuilder();
+        
+        for(char b:list){
+            sb.append(b);
+        }
+        return sb.toString();
+    }
+}
