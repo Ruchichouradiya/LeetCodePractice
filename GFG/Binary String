@@ -1,0 +1,26 @@
+
+class Solution
+{
+    //Function to count the number of substrings that start and end with 1.
+    public static int binarySubstring(int b, String str)
+    {
+        /*int count = 0; 
+        char[] a = str.toCharArray();
+        for(int i=0;i<str.length();i++){
+            if(a[i] == '1'){
+                for(int j=i+1;j<str.length();j++){
+                    if(a[i] == a[j])
+                        count++;
+                }        
+            }    
+        }*/
+        int count = 0;
+        for(int i=0;i<b;i++){
+            if(str.charAt(i) == '1'){
+                count++;
+            }
+        }
+        
+        return count * (count - 1)/2;
+    }
+}
