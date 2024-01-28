@@ -1,0 +1,31 @@
+
+class Solution
+{
+    
+    public void sortIt(long arr[], long n)
+    {
+        //code here.
+         ArrayList<Long> odd = new ArrayList<>();
+        ArrayList<Long> even = new ArrayList<>();
+        
+        for(long i:arr){
+            if(i%2==0){
+                even.add(i);
+            }
+            else{
+                odd.add(i);
+            }
+        }
+        
+        Collections.sort(even);
+        Collections.sort(odd, Collections.reverseOrder());
+        
+        int i=0;
+        for(long x:odd){
+            arr[i++] = x;
+        }
+        for(long x:even){
+            arr[i++] = x;
+        }    
+    }
+}
