@@ -1,0 +1,24 @@
+
+
+//User function Template for Java
+
+class Solution
+{
+    public int gcd(int N , int arr[]) 
+    { 
+       //code here.
+       int ans = arr[0];
+       for(int i = 1; i < N; i++) {
+           int a = arr[i];
+        //   int b = arr[i+1];
+           
+           ans = getGCD(ans, a);
+       }
+       
+       return ans;
+    } 
+    
+    private int getGCD(int a, int b) {
+        return b > 0 ? getGCD(b, a % b) : a;
+    }
+}
